@@ -28,7 +28,7 @@ class Slack:
         user_id = request.args.get("user_id")
         response_url = request.args.get("response_url")
 
-        if token != slack.SLASH_COMMAND_TOKEN:
+        if token != self.SLASH_COMMAND_TOKEN:
             return "Unauthorized."
 
         latex = quote(latex)

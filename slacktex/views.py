@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route("/",  methods=['GET', 'POST'])
 def index():
-    print request
     if not request.args:
         message = """
         Welcome to SlackTeX!
