@@ -43,6 +43,7 @@ class Slack:
             "image_url": latex_url,
             "fallback": "Oops. Something went wrong."
         }]
-        payload.update({"attachments": attachments})
+        payload.update({"attachments": attachments,
+                        "response_type": "in_channel"})
 
         return payload
