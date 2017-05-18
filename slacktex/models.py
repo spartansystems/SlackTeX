@@ -29,7 +29,7 @@ class Slack:
         response_url = request.args.get("response_url")
 
         if token != self.SLASH_COMMAND_TOKEN:
-            return "Unauthorized."
+            return dict(text="Unauthorized to use this command.")
 
         latex = quote(latex)
         latex_url = "http://chart.apis.google.com/chart?cht=tx&chl={latex}".format(
@@ -45,4 +45,4 @@ class Slack:
         }]
         payload.update({"attachments": attachments})
 
-        requests.post(response_url, data=json.dumps(payload))
+        return payload

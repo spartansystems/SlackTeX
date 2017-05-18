@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from models import Slack
 
 
@@ -17,6 +17,6 @@ def index():
 
     else:
         slack = Slack()
-        slack.post_latex_message(request)
+        payload = slack.post_latex_message(request)
 
-        return "Success!", 200
+        return jsonify(payload), 200
